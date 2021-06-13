@@ -9,7 +9,7 @@ export class Home extends Component {
    }
    signIn =async() =>{
     
-    window.open('http://localhost:5000/auth/google',"_self")
+    window.open('https://pollroom.herokuapp.com/auth/google',"_self")
    }
   
   

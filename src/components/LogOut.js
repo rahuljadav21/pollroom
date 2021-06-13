@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class LogOut extends Component {
     LogOut =async() =>{
     
-        window.open('http://localhost:3000/auth/logout',"_self")
+        window.open('https://pollroom.herokuapp.com/auth/logout',"_self")
        }
     
 

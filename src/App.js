@@ -50,6 +50,7 @@ function App() {
              </>
            ) : (
             <Route path='/' component={Home} />
+            
           )
         }
         

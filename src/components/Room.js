@@ -19,6 +19,7 @@ function Child({room,polls,user }) {
                     <form action={`/pollroom/room/${room._id}`} method='post'>
                         <textarea name="question" id="" cols="20" rows="10" placeholder="Paste/Type the question here"></textarea>
                         <button style={{background:'#198754'}}>Add</button>
+                        <div><p>Refresh page for update responce</p></div>
                     </form>
                 </div>
             </div>
@@ -35,7 +36,7 @@ function Parent() {
     const { id } = useParams();
 
     const fetchRoom = async () => {
-        await axios.get(`/pollroom/room/${id}`, { withCredentials: true })
+        await axios.get(`https://pollroom.herokuapp.com/pollroom/room/${id}`, { withCredentials: true })
             .then((res) => {
 
                 setRoom(res.data)
@@ -43,10 +44,12 @@ function Parent() {
             });
 
     }
-
+ 
     useEffect(() => {
         fetchRoom();
-    });
+    },[]);
+   
+
 
     const [user,setUser] = useState({})
     useEffect(() => {
@@ -55,6 +58,8 @@ function Parent() {
           setUser(res.data)
       });
   }, []);
+
+  
 
 
 
