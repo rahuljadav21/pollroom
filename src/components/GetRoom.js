@@ -25,8 +25,8 @@ export class GetRoom extends Component {
 
 
 }}>
-            <Link to='/pollroom/find' style={{marginRight:'5vh'}} className='btn btn-sm btn-info'>Join</Link>
-            <Link to='/pollroom/create' className='btn btn-sm btn-success'>Create</Link>
+            <Link to='https://pollroom.netlify.app/pollroom/find' style={{marginRight:'5vh'}} className='btn btn-sm btn-info'>Join</Link>
+            <Link to='https://pollroom.netlify.app/pollroom/create' className='btn btn-sm btn-success'>Create</Link>
             </div>
           </>
         )

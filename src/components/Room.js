@@ -16,7 +16,7 @@ function Child({room,polls,user }) {
                     {<Polls room={room} polls={polls} user={user} />}
                 </div>
                 <div className="add-container">
-                    <form action={`/pollroom/room/${room._id}`} method='post'>
+                    <form action={`https://pollroom.herokuapp.com/pollroom/room/${room._id}`} method='post'>
                         <textarea name="question" id="" cols="20" rows="10" placeholder="Paste/Type the question here"></textarea>
                         <button style={{background:'#198754'}}>Add</button>
                         <div><p>Refresh page for update responce</p></div>
@@ -34,20 +34,22 @@ function Parent() {
     const [room, setRoom] = useState({})
     const [polls, setPolls] = useState([])
     const { id } = useParams();
-
-    const fetchRoom = async () => {
-        await axios.get(`https://pollroom.herokuapp.com/pollroom/room/${id}`, { withCredentials: true })
-            .then((res) => {
-
-                setRoom(res.data)
-                setPolls(res.data.polls)
-            });
-
-    }
+   
+    
  
     useEffect(() => {
+       
+        const fetchRoom = async () => {
+            await axios.get(`https://pollroom.herokuapp.com/pollroom/room/${id}`, { withCredentials: true })
+                .then((res) => {
+    
+                    setRoom(res.data)
+                    setPolls(res.data.polls)
+                });
+    
+        }
         fetchRoom();
-    },[]);
+    },[id]);
    
 
 

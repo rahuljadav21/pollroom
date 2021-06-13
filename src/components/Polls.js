@@ -20,7 +20,7 @@ function Polls({room,polls,user}) {
                 <div className="que">Question :{p.question} </div>
                
                 <div className="res">
-                    <form className="validate-form" noValidate action={`/pollroom/room/${room._id}/poll/${p._id}`} method='post'>
+                    <form className="validate-form" noValidate action={`https://pollroom.herokuapp.com/pollroom/room/${room._id}/poll/${p._id}`} method='post'>
                     <div className="opt">
                         <label id='1'>A</label>
                               <input type="radio" defaultChecked={p.option_1.includes(user._id)} disabled={p.option_1.includes(user._id)||p.option_2.includes(user._id)||p.option_3.includes(user._id)||p.option_4.includes(user._id)} name='ans'value='option_1' id="1"/>
